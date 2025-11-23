@@ -1,54 +1,434 @@
-<div class="separator" style="clear: both;"><a href="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTffYifPhF39DvUeS2-pyiFsAjliu-anyiH-FVp7READX9c_EJvtbBRVoXAQyT65IfYEC-ioL-iGMOvk7zYlaxn7OHo9FwC7bIbWFS8x2L9NvcJ34YBNgw7U-IHGodSpB-B_Ec_j0yC6ecL17kGFnwU1CZ4ZLXA4oUQcaT2TUEZMhIL8F_2wGj3PAmCKM/s1600/art.jpg" style="display: block; padding: 1em 0; text-align: center; "><img alt="" border="0" data-original-height="1283" data-original-width="2280" src="https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTffYifPhF39DvUeS2-pyiFsAjliu-anyiH-FVp7READX9c_EJvtbBRVoXAQyT65IfYEC-ioL-iGMOvk7zYlaxn7OHo9FwC7bIbWFS8x2L9NvcJ34YBNgw7U-IHGodSpB-B_Ec_j0yC6ecL17kGFnwU1CZ4ZLXA4oUQcaT2TUEZMhIL8F_2wGj3PAmCKM/s1600/art.jpg"/></a></div>
-<!-- PASTE THIS INTO BLOGGER HTML VIEW -->
-<div style="font-family: Helvetica, Arial, sans-serif; color: #333; line-height: 1.6;">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Generate Viral Group Cast Photos - AI Guide</title>
+    <style>
+        /* GLOBAL BLOG STYLES (Pink Theme) */
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #fdf2f8; 
+        }
 
-    <!-- INTRO -->
-    <p>Generating a consistent group of characters is one of the hardest tasks in AI art. The AI often struggles to make everyone look related or part of the same "universe." The secret? Framing the prompt as a specific <em>type</em> of photograph.</p>
-    
-    <p>Whether you want a gritty 90s grunge band look or a polished Hollywood ensemble, use the generator below to customize your cast.</p>
+        /* LAYOUT CONTAINER */
+        .blog-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
 
-    <!-- === INTERACTIVE GENERATOR === -->
-    <div id="ai-group-pink-container" style="max-width: 100%; margin: 30px 0; background: #ffffff; border: 1px solid #fbcfe8; border-radius: 12px; box-shadow: 0 4px 6px -1px rgba(236, 72, 153, 0.1); overflow: hidden; color: #333;">
-        <div style="background: #fdf2f8; padding: 20px; border-bottom: 1px solid #fbcfe8;">
-            <h3 style="margin: 0 0 8px 0; font-size: 20px; color: #db2777; font-weight: 700;">Viral Cast Photo Generator</h3>
-            <p style="margin: 0 0 15px 0; color: #be185d; font-size: 14px;">Define your cast below (e.g., "A cast of teen wizards").</p>
-            <label style="display: block; font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #db2777; margin-bottom: 5px;">Describe Your Cast:</label>
-            <input type="text" id="gen-input-group" placeholder="e.g., A diverse cast of cyberpunk rebels..." style="width: 100%; padding: 10px; font-size: 15px; border: 2px solid #f9a8d4; border-radius: 8px; box-sizing: border-box; outline: none; color: #831843; background: #fff;">
-        </div>
-        <div id="gen-list-group" style="padding: 20px; background: #ffffff;"></div>
-        <script>
-        (function() {
-            var promptsData=[{title:"1. The Vanity Fair Cover (High Fashion)",text:"Wide cinematic shot, Vanity Fair Hollywood Issue fold-out cover style, featuring [DESC], posing elegantly in evening wear, Annie Leibovitz lighting, painted canvas backdrop, soft focus, expensive texture, celebrity ensemble aesthetic, 8k resolution, highly detailed faces --ar 16:9 --stylize 250"},{title:"2. The 'Oscar Selfie' (Candid)",text:"High-angle smartphone selfie taken by a lead character, featuring [DESC], squeezing into the frame, laughing and making candid expressions, blurry awards show background with bokeh, flash photography style, imperfect framing, viral social media aesthetic, ultra-realistic skin texture --ar 4:5"},{title:"3. The Wes Anderson Ensemble (Symmetrical)",text:"A perfectly symmetrical, flat-lay style group portrait of [DESC], standing in a line looking directly at camera with deadpan expressions, pastel color palette (pale pink, mint green, mustard yellow), retro 1970s fashion, geometric composition, shot on 35mm film, Wes Anderson aesthetic --ar 16:9"},{title:"4. The 90s Sitcom Intro (Cheesy Retro)",text:"A cheesy 1990s sitcom promotional cast photo of [DESC], wearing colorful 90s denim and oversized shirts, bright high-key studio lighting, soft focus bloom, posing playfully around a beige couch, freeze-frame energy, 'Friends' or 'Full House' aesthetic, 4k --ar 4:3"},{title:"5. The Cyberpunk Squad (Neon Noir)",text:"Low-angle hero shot of [DESC], standing in a rainy neon-lit alleyway, wearing tactical tech-wear and glowing accessories, cinematic blue and magenta rim lighting, wet pavement reflections, intense stares, 'Cyberpunk 2077' gang style, volumetric fog, octane render --ar 16:9"},{title:"6. The Period Drama (Regency Oil Painting)",text:"A formal family portrait of [DESC], dressed in intricate Regency-era ballgowns and military uniforms, posed stiffly in a lavish drawing room, chiaroscuro lighting resembling an oil painting, rich velvet textures, 'Bridgerton' aesthetic, photorealistic but painterly --ar 3:2"},{title:"7. The Action Movie Poster (Blue/Orange)",text:"Epic movie poster composition of [DESC], arranged in a pyramid formation, intense expressions, dirt and sweat on faces, flying debris and sparks in background, high contrast blue and orange color grading, dramatic shadows, Marvel movie ensemble style, 8k --ar 2:3"},{title:"8. The Golden Age (Film Noir)",text:"Classic black and white Hollywood publicity still of [DESC], 1940s glamour, tuxedos and silk gowns, mid-Atlantic accents implied, dramatic hard lighting (Rembrandt style), film grain, cigarette smoke swirling, 'Casablanca' era aesthetic --ar 4:5"},{title:"9. The 'Vogue' Editorial (Avant-Garde)",text:"Abstract fashion editorial group shot of [DESC], wearing matching avant-garde structural clothing, posing dynamically on a white infinite cyc wall, harsh high-fashion flash photography, sharp shadows, minimalist composition, high contrast, Vogue Italia style --ar 3:4"},{title:"10. The Horror Survivors (Gritty)",text:"A terrified group photo of [DESC], huddled together in a dark forest, illuminated only by a single flashlight beam, grime and blood on clothes, wide eyes looking at camera, shaky cam footage aesthetic, 'Blair Witch' style, grain and noise, atmospheric horror --ar 16:9"}];
-            var container=document.getElementById('ai-group-pink-container');var input=document.getElementById('gen-input-group');var list=document.getElementById('gen-list-group');
-            function renderPrompts(){var userDesc=input.value.trim();var defaultDescs=["A star-studded cast of A-list actors", "A diverse group of best friends", "A quirky family of geniuses", "A cast of 90s teenage heartthrobs", "A futuristic hacker collective", "A noble family of aristocrats", "A team of elite superheroes", "A cast of Golden Age film stars", "A group of high-fashion supermodels", "A group of terrified camp counselors"];var highlightStyle="background-color: #fce7f3; color: #9d174d; font-weight: bold; padding: 2px 6px; border-radius: 4px;";var html="";for(var i=0;i<promptsData.length;i++){var p=promptsData[i];var currentDesc=userDesc||defaultDescs[i];var visualText=p.text.replace("[DESC]","<span style='"+highlightStyle+"'>"+currentDesc+"</span>");html+='<div style="margin-bottom: 24px; border: 1px solid #fce7f3; border-radius: 8px; overflow: hidden;">';html+='<div style="background: #fff1f2; padding: 10px 15px; border-bottom: 1px solid #fce7f3; display: flex; justify-content: space-between; align-items: center;">';html+='<h4 style="margin: 0; font-size: 15px; color: #be185d;">'+p.title+'</h4>';html+='<button class="gen-copy-btn-group" data-index="'+i+'" style="cursor: pointer; background: #db2777; color: white; border: none; padding: 5px 10px; border-radius: 4px; font-size: 12px; font-weight: 600; font-family: inherit;">Copy</button>';html+='</div>';html+='<div style="padding: 15px; background: #ffffff; color: #475569; font-family: monospace; font-size: 13px; line-height: 1.6;">';html+=visualText;html+='</div>';html+='</div>'}list.innerHTML=html}
-            list.addEventListener('click',function(e){if(e.target&&e.target.classList.contains('gen-copy-btn-group')){var btn=e.target;var idx=btn.getAttribute('data-index');var p=promptsData[idx];var defaultDescs=["A star-studded cast of A-list actors", "A diverse group of best friends", "A quirky family of geniuses", "A cast of 90s teenage heartthrobs", "A futuristic hacker collective", "A noble family of aristocrats", "A team of elite superheroes", "A cast of Golden Age film stars", "A group of high-fashion supermodels", "A group of terrified camp counselors"];var userDesc=input.value.trim()||defaultDescs[idx];var finalCleanText=p.text.replace("[DESC]",userDesc);if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(finalCleanText).then(function(){showCopied(btn)})}else{var textArea=document.createElement("textarea");textArea.value=finalCleanText;document.body.appendChild(textArea);textArea.select();document.execCommand("Copy");textArea.remove();showCopied(btn)}}});
-            function showCopied(btn){var originalText=btn.innerText;btn.innerText="Copied!";btn.style.backgroundColor="#059669";setTimeout(function(){btn.innerText=originalText;btn.style.backgroundColor="#db2777"},2000)}
-            input.addEventListener('input',renderPrompts);renderPrompts();})();
-        </script>
+        /* MAIN CONTENT COLUMN */
+        .main-content {
+            flex: 3;
+            min-width: 300px;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        /* SIDEBAR COLUMN */
+        .sidebar {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        /* TYPOGRAPHY */
+        h1 { color: #be185d; font-size: 2.5rem; margin-bottom: 10px; line-height: 1.2; }
+        h2 { color: #db2777; margin-top: 30px; border-bottom: 2px solid #fce7f3; padding-bottom: 10px; }
+        h3 { color: #db2777; margin-top: 25px; }
+        p { margin-bottom: 20px; color: #4b5563; }
+        
+        /* WIDGET STYLES (Sidebar) */
+        .widget {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #fbcfe8;
+        }
+        .widget-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #be185d;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #fce7f3;
+            padding-bottom: 10px;
+        }
+
+        /* NAV BAR (Standard Site Nav) */
+        .nav-bar {
+            background: white;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #fce7f3;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+        .nav-bar a {
+            color: #db2777;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        .nav-bar a:hover { color: #be185d; }
+        
+        /* GENERATOR SPECIFIC STYLES */
+        .highlight-text {
+            background-color: #fce7f3; 
+            color: #9d174d; 
+            font-weight: bold; 
+            padding: 2px 6px; 
+            border-radius: 4px;
+        }
+        .generator-container {
+            border: 1px solid #fbcfe8;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgba(236, 72, 153, 0.1);
+            overflow: hidden;
+            margin: 40px 0;
+        }
+        .generator-header {
+            background: #fdf2f8;
+            padding: 25px;
+            border-bottom: 1px solid #fbcfe8;
+        }
+        .generator-list {
+            padding: 25px; 
+            background: #ffffff;
+        }
+        .prompt-card {
+            margin-bottom: 24px; 
+            border: 1px solid #fce7f3; 
+            border-radius: 8px; 
+            overflow: hidden;
+        }
+        .prompt-card-header {
+            background: #fff1f2; 
+            padding: 12px 16px; 
+            border-bottom: 1px solid #fce7f3; 
+            display: flex; 
+            justify-content: space-between; 
+            align-items: center;
+        }
+        .copy-btn {
+            cursor: pointer; 
+            background: #db2777; 
+            color: white; 
+            border: none; 
+            padding: 6px 12px; 
+            border-radius: 4px; 
+            font-size: 13px; 
+            font-weight: 600; 
+            font-family: inherit;
+        }
+        .prompt-text {
+            padding: 16px; 
+            background: #ffffff; 
+            color: #475569; 
+            font-family: monospace; 
+            font-size: 13px; 
+            line-height: 1.6;
+        }
+
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .blog-container { flex-direction: column; }
+            .main-content { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SITE HEADER WITH NAV -->
+    <div class="nav-bar">
+        <span style="display:block; margin-bottom:10px; font-weight:900; letter-spacing:1px; font-size:18px; color:#be185d;">MY AI ART BLOG</span>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="dance_personalities_post.html">Dance Prompts</a>
+            <a href="viral_group_photos_post.html">Viral Photos</a>
+            <a href="github_setup_guide.html">Tutorials</a>
+        </nav>
     </div>
 
-    <!-- === "REAL ACTORS" EXPLANATION === -->
-    <div style="background: #fff1f2; border-left: 6px solid #db2777; padding: 20px; border-radius: 8px; margin-bottom: 40px;">
-        <h3 style="margin-top: 0; color: #9f1239;">⚡ How to Handle "Real" Actors</h3>
-        <p style="font-size: 15px; margin-bottom: 15px;">AI struggles to generate 10 specific celebrities in one shot because it blends their faces.</p>
-        <ul style="margin: 0; padding-left: 20px; font-size: 15px; color: #333;">
-            <li style="margin-bottom: 10px;"><strong>Method 1 (The Archetype):</strong> Instead of names, describe the <em>types</em> (e.g., "A cast of 5 attractive actors in tuxedos"). This creates a cohesive group.</li>
-            <li style="margin-bottom: 10px;"><strong>Method 2 (The Lookalike):</strong> Use comparisons (e.g., "A man resembling a young Harrison Ford").</li>
-            <li><strong>Method 3 (The Pro Swap):</strong> Generate the group shot using Method 1 to get the composition right. Then, use a Face Swap tool (like InsightFace) to replace the AI faces with the specific real actors you want.</li>
-        </ul>
+    <div class="blog-container">
+        
+        <!-- MAIN ARTICLE AREA -->
+        <article class="main-content">
+            
+            <!-- POST HEADER -->
+            <header>
+                <span style="background: #fce7f3; color: #9d174d; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold;">AI TUTORIALS</span>
+                <h1>The "Viral Cast Photo" Formula: 10 Prompts for Group Shots</h1>
+                <p style="font-style: italic; color: #831843;">From the "Vanity Fair" cover to the candid "Oscar Selfie," here is how to generate perfect ensemble cast images.</p>
+                <hr style="border: 0; border-top: 1px solid #fce7f3; margin: 30px 0;">
+            </header>
+
+            <!-- INTRO TEXT -->
+            <p>Generating a consistent group of characters is one of the hardest tasks in AI art. The AI often struggles to make everyone look related or part of the same "universe." The secret? Framing the prompt as a specific <em>type</em> of photograph.</p>
+            
+            <p>Whether you want a gritty 90s grunge band look or a polished Hollywood ensemble, use the generator below to customize your cast.</p>
+
+            <!-- === INTERACTIVE GENERATOR === -->
+            <div id="ai-group-pink-container" class="generator-container">
+                <div class="generator-header">
+                    <h2 style="margin: 0 0 8px 0; font-size: 24px; color: #db2777; font-weight: 700;">Viral Cast Photo Generator</h2>
+                    <p style="margin: 0 0 20px 0; color: #be185d; font-size: 15px;">Define your cast below (e.g., "A cast of teen wizards," "A gritty mobster family").</p>
+                    <label style="display: block; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #db2777; margin-bottom: 8px;">Describe Your Cast:</label>
+                    <input type="text" id="gen-input-group" placeholder="e.g., A diverse cast of cyberpunk rebels..." style="width: 100%; padding: 12px 16px; font-size: 16px; border: 2px solid #f9a8d4; border-radius: 8px; box-sizing: border-box; outline: none; transition: border-color 0.2s; color: #831843; background: #fff;">
+                </div>
+                <div id="gen-list-group" class="generator-list">
+                    <!-- JavaScript will inject prompts here -->
+                </div>
+                
+                <script>
+                (function() {
+                    // This is the prompt data array (defined locally for self-contained code)
+                    var promptsData=[
+                        {title:"1. The Vanity Fair Cover (High Fashion)", text:"Wide cinematic shot, Vanity Fair Hollywood Issue fold-out cover style, featuring [DESC], posing elegantly in evening wear, Annie Leibowitz lighting, painted canvas backdrop, soft focus, expensive texture, celebrity ensemble aesthetic, 8k resolution, highly detailed faces --ar 16:9 --stylize 250"},
+                        {title:"2. The 'Oscar Selfie' (Candid)", text:"High-angle smartphone selfie taken by a lead character, featuring [DESC], squeezing into the frame, laughing and making candid expressions, blurry awards show background with bokeh, flash photography style, imperfect framing, viral social media aesthetic, ultra-realistic skin texture --ar 4:5"},
+                        {title:"3. The Wes Anderson Ensemble (Symmetrical)", text:"A perfectly symmetrical, flat-lay style group portrait of [DESC], standing in a line looking directly at camera with deadpan expressions, pastel color palette (pale pink, mint green, mustard yellow), retro 1970s fashion, geometric composition, shot on 35mm film, Wes Anderson aesthetic --ar 16:9"},
+                        {title:"4. The 90s Sitcom Intro (Cheesy Retro)", text:"A cheesy 1990s sitcom promotional cast photo of [DESC], wearing colorful 90s denim and oversized shirts, bright high-key studio lighting, soft focus bloom, posing playfully around a beige couch, freeze-frame energy, 'Friends' or 'Full House' aesthetic, 4k --ar 4:3"},
+                        {title:"5. The Cyberpunk Squad (Neon Noir)", text:"Low-angle hero shot of [DESC], standing in a rainy neon-lit alleyway, wearing tactical tech-wear and glowing accessories, cinematic blue and magenta rim lighting, wet pavement reflections, intense stares, 'Cyberpunk 2077' gang style, volumetric fog, octane render --ar 16:9"},
+                        {title:"6. The Period Drama (Regency Oil Painting)", text:"A formal family portrait of [DESC], dressed in intricate Regency-era ballgowns and military uniforms, posed stiffly in a lavish drawing room, chiaroscuro lighting resembling an oil painting, rich velvet textures, 'Bridgerton' aesthetic, photorealistic but painterly --ar 3:2"},
+                        {title:"7. The Action Movie Poster (Blue/Orange)", text:"Epic movie poster composition of [DESC], arranged in a pyramid formation, intense expressions, dirt and sweat on faces, flying debris and sparks in background, high contrast blue and orange color grading, dramatic shadows, Marvel movie ensemble style, 8k --ar 2:3"},
+                        {title:"8. The Golden Age (Film Noir)", text:"Classic black and white Hollywood publicity still of [DESC], 1940s glamour, tuxedos and silk gowns, mid-Atlantic accents implied, dramatic hard lighting (Rembrandt style), film grain, cigarette smoke swirling, 'Casablanca' era aesthetic --ar 4:5"},
+                        {title:"9. The 'Vogue' Editorial (Avant-Garde)", text:"Abstract fashion editorial group shot of [DESC], wearing matching avant-garde structural clothing, posing dynamically on a white infinite cyc wall, harsh high-fashion flash photography, sharp shadows, minimalist composition, high contrast, Vogue Italia style --ar 3:4"},
+                        {title:"10. The Horror Survivors (Gritty)", text:"A terrified group photo of [DESC], huddled together in a dark forest, illuminated only by a single flashlight beam, grime and blood on clothes, wide eyes looking at camera, shaky cam footage aesthetic, 'Blair Witch' style, grain and noise, atmospheric horror --ar 16:9"}
+                    ];
+                    
+                    var input = document.getElementById('gen-input-group');
+                    var list = document.getElementById('gen-list-group');
+                    
+                    function renderPrompts(){
+                        var userDesc=input.value.trim();
+                        var defaultDescs=[
+                            "A star-studded cast of A-list actors", "A diverse group of best friends", "A quirky family of geniuses", "A cast of 90s teenage heartthrobs", 
+                            "A futuristic hacker collective", "A noble family of aristocrats", "A team of elite superheroes", "A cast of Golden Age film stars", 
+                            "A group of high-fashion supermodels", "A group of terrified camp counselors"
+                        ];
+                        var highlightStyle="background-color: #fce7f3; color: #9d174d; font-weight: bold; padding: 2px 6px; border-radius: 4px;";
+                        var html="";
+                        
+                        for(var i=0;i<promptsData.length;i++){
+                            var p=promptsData[i];
+                            var currentDesc=userDesc||defaultDescs[i];
+                            var visualText=p.text.replace("[DESC]","<span style='"+highlightStyle+"'>"+currentDesc+"</span>");
+                            
+                            html+='<div class="prompt-card">';
+                            html+='<div class="prompt-card-header">';
+                            html+='<h3 style="margin: 0; font-size: 16px; color: #be185d;">'+p.title+'</h3>';
+                            html+='<button class="gen-copy-btn-group copy-btn" data-index="'+i+'">Copy</button>';
+                            html+='</div>';
+                            html+='<div class="prompt-text">';
+                            html+=visualText;
+                            html+='</div>';
+                            html+='</div>'
+                        }
+                        list.innerHTML=html;
+                    }
+                    
+                    list.addEventListener('click',function(e){
+                        if(e.target&&e.target.classList.contains('gen-copy-btn-group')){
+                            var btn=e.target;
+                            var idx=btn.getAttribute('data-index');
+                            var p=promptsData[idx];
+                            
+                            var defaultDescs=[
+                                "A star-studded cast of A-list actors", "A diverse group of best friends", "A quirky family of geniuses", "A cast of 90s teenage heartthrobs", 
+                                "A futuristic hacker collective", "A noble family of aristocrats", "A team of elite superheroes", "A cast of Golden Age film stars", 
+                                "A group of high-fashion supermodels", "A group of terrified camp counselors"
+                            ];
+                            
+                            var userDesc=input.value.trim()||defaultDescs[idx];
+                            var finalCleanText=p.text.replace("[DESC]",userDesc);
+                            
+                            if(navigator.clipboard&&navigator.clipboard.writeText){
+                                navigator.clipboard.writeText(finalCleanText).then(function(){showCopied(btn)});
+                            }else{
+                                var textArea=document.createElement("textarea");
+                                textArea.value=finalCleanText;
+                                document.body.appendChild(textArea);
+                                textArea.select();
+                                document.execCommand("Copy");
+                                textArea.remove();
+                                showCopied(btn);
+                            }
+                        }
+                    });
+                    
+                    function showCopied(btn){
+                        var originalText=btn.innerText;
+                        btn.innerText="Copied!";
+                        btn.style.backgroundColor="#059669";
+                        setTimeout(function(){
+                            btn.innerText=originalText;
+                            btn.style.backgroundColor="#db2777"
+                        },2000)
+                    }
+                    
+                    input.addEventListener('input',renderPrompts);
+                    renderPrompts();
+                })();
+                </script>
+            </div>
+
+
+            <!-- === ADDED SECTION: HOW TO USE === -->
+            <div style="background: #fff1f2; border-left: 6px solid #db2777; padding: 20px; border-radius: 8px; margin-bottom: 40px;">
+                <h3 style="margin-top: 0; color: #9f1239;">⚡ How to Handle "Real" Actors</h3>
+                <p style="font-size: 15px; margin-bottom: 15px;">AI struggles to generate 10 specific celebrities in one shot (e.g., "Brad Pitt, Tom Cruise, Leo DiCaprio...") because it blends their faces.</p>
+                <ul style="margin: 0; padding-left: 20px; font-size: 15px; color: #333;">
+                    <li style="margin-bottom: 10px;"><strong>Method 1 (The Archetype):</strong> Instead of names, describe the <em>types</em>. E.g., <em>"A diverse cast of 5 attractive actors in tuxedos, one man with long hair, one woman with a bob cut..."</em> This creates a cohesive, realistic group.</li>
+                    <li style="margin-bottom: 10px;"><strong>Method 2 (The Lookalike):</strong> Use names of obscure actors or mix distinctive features. E.g., <em>"A man resembling a young Harrison Ford next to a woman with Zendaya's style..."</em></li>
+                    <li><strong>Method 3 (The Pro Swap):</strong> Generate the group shot using Method 1 to get the composition right. Then, use a Face Swap tool (like InsightFace) to replace the AI faces with the specific real actors you want.</li>
+                </ul>
+            </div>
+
+
+            <h2 id="static-collection">The Static Collection</h2>
+            <p>Browse the styles below to see how lighting and camera angles change the vibe of your group.</p>
+
+            <!-- STATIC PROMPT 1 -->
+            <div style="margin-bottom: 30px;">
+                <h3 style="color: #db2777; margin-bottom: 10px;">1. The Vanity Fair Cover</h3>
+                <div style="background-color: #fdf2f8; border: 1px solid #fbcfe8; padding: 15px; border-left: 5px solid #db2777;">
+                    <strong>The Prompt:</strong><br><br>
+                    <span style="font-family: monospace; font-size: 14px;">Wide cinematic shot, Vanity Fair Hollywood Issue fold-out cover style, featuring [describe cast], posing elegantly in evening wear, Annie Leibowitz lighting, painted canvas backdrop, soft focus, expensive texture, celebrity ensemble aesthetic, 8k resolution, highly detailed faces --ar 16:9 --stylize 250</span>
+                </div>
+            </div>
+            <hr style="border: 0; border-top: 1px solid #fce7f3; margin: 30px 0;">
+
+            <!-- STATIC PROMPT 2 -->
+            <div style="margin-bottom: 30px;">
+                <h3 style="color: #db2777; margin-bottom: 10px;">2. The 'Oscar Selfie'</h3>
+                <div style="background-color: #fdf2f8; border: 1px solid #fbcfe8; padding: 15px; border-left: 5px solid #db2777;">
+                    <strong>The Prompt:</strong><br><br>
+                    <span style="font-family: monospace; font-size: 14px;">High-angle smartphone selfie taken by a lead character, featuring [describe cast], squeezing into the frame, laughing and making candid expressions, blurry awards show background with bokeh, flash photography style, imperfect framing, viral social media aesthetic, ultra-realistic skin texture --ar 4:5</span>
+                </div>
+            </div>
+            <hr style="border: 0; border-top: 1px solid #fce7f3; margin: 30px 0;">
+
+            <!-- STATIC PROMPT 3 -->
+            <div style="margin-bottom: 30px;">
+                <h3 style="color: #db2777; margin-bottom: 10px;">3. The Wes Anderson Ensemble</h3>
+                <div style="background-color: #fdf2f8; border: 1px solid #fbcfe8; padding: 15px; border-left: 5px solid #db2777;">
+                    <strong>The Prompt:</strong><br><br>
+                    <span style="font-family: monospace; font-size: 14px;">A perfectly symmetrical, flat-lay style group portrait of [describe cast], standing in a line looking directly at camera with deadpan expressions, pastel color palette (pale pink, mint green, mustard yellow), retro 1970s fashion, geometric composition, shot on 35mm film, Wes Anderson aesthetic --ar 16:9</span>
+                </div>
+            </div>
+            <hr style="border: 0; border-top: 1px solid #fce7f3; margin: 30px 0;">
+
+            <!-- STATIC PROMPT 4 -->
+            <div style="margin-bottom: 30px;">
+                <h3 style="color: #db2777; margin-bottom: 10px;">4. The 90s Sitcom Intro</h3>
+                <div style="background-color: #fdf2f8; border: 1px solid #fbcfe8; padding: 15px; border-left: 5px solid #db2777;">
+                    <strong>The Prompt:</strong><br><br>
+                    <span style="font-family: monospace; font-size: 14px;">A cheesy 1990s sitcom promotional cast photo of [describe cast], wearing colorful 90s denim and oversized shirts, bright high-key studio lighting, soft focus bloom, posing playfully around a beige couch, freeze-frame energy, 'Friends' or 'Full House' aesthetic, 4k --ar 4:3</span>
+                </div>
+            </div>
+            <hr style="border: 0; border-top: 1px solid #fce7f3; margin: 30px 0;">
+
+            <!-- STATIC PROMPT 5 -->
+            <div style="margin-bottom: 30px;">
+                <h3 style="color: #db2777; margin-bottom: 10px;">5. The Cyberpunk Squad</h3>
+                <div style="background-color: #fdf2f8; border: 1px solid #fbcfe8; padding: 15px; border-left: 5px solid #db2777;">
+                    <strong>The Prompt:</strong><br><br>
+                    <span style="font-family: monospace; font-size: 14px;">Low-angle hero shot of [describe cast], standing in a rainy neon-lit alleyway, wearing tactical tech-wear and glowing accessories, cinematic blue and magenta rim lighting, wet pavement reflections, intense stares, 'Cyberpunk 2077' gang style, volumetric fog, octane render --ar 16:9</span>
+                </div>
+            </div>
+            <hr style="border: 0; border-top: 1px solid #fce7f3; margin: 30px 0;">
+
+            <!-- STATIC PROMPT 6 -->
+            <div style="margin-bottom: 30px;">
+                <h3 style="color: #db2777; margin-bottom: 10px;">6. The Period Drama</h3>
+                <div style="background-color: #fdf2f8; border: 1px solid #fbcfe8; padding: 15px; border-left: 5px solid #db2777;">
+                    <strong>The Prompt:</strong><br><br>
+                    <span style="font-family: monospace; font-size: 14px;">A formal family portrait of [describe cast], dressed in intricate Regency-era ballgowns and military uniforms, posed stiffly in a lavish drawing room, chiaroscuro lighting resembling an oil painting, rich velvet textures, 'Bridgerton' aesthetic, photorealistic but painterly --ar 3:2</span>
+                </div>
+            </div>
+            <hr style="border: 0; border-top: 1px solid #fce7f3; margin: 30px 0;">
+
+            <!-- STATIC PROMPT 7 -->
+            <div style="margin-bottom: 30px;">
+                <h3 style="color: #db2777; margin-bottom: 10px;">7. The Action Movie Poster</h3>
+                <div style="background-color: #fdf2f8; border: 1px solid #fbcfe8; padding: 15px; border-left: 5px solid #db2777;">
+                    <strong>The Prompt:</strong><br><br>
+                    <span style="font-family: monospace; font-size: 14px;">Epic movie poster composition of [describe cast], arranged in a pyramid formation, intense expressions, dirt and sweat on faces, flying debris and sparks in background, high contrast blue and orange color grading, dramatic shadows, Marvel movie ensemble style, 8k --ar 2:3</span>
+                </div>
+            </div>
+            <hr style="border: 0; border-top: 1px solid #fce7f3; margin: 30px 0;">
+
+            <!-- STATIC PROMPT 8 -->
+            <div style="margin-bottom: 30px;">
+                <h3 style="color: #db2777; margin-bottom: 10px;">8. The Golden Age</h3>
+                <div style="background-color: #fdf2f8; border: 1px solid #fbcfe8; padding: 15px; border-left: 5px solid #db2777;">
+                    <strong>The Prompt:</strong><br><br>
+                    <span style="font-family: monospace; font-size: 14px;">Classic black and white Hollywood publicity still of [describe cast], 1940s glamour, tuxedos and silk gowns, mid-Atlantic accents implied, dramatic hard lighting (Rembrandt style), film grain, cigarette smoke swirling, 'Casablanca' era aesthetic --ar 4:5</span>
+                </div>
+            </div>
+            <hr style="border: 0; border-top: 1px solid #fce7f3; margin: 30px 0;">
+
+            <!-- STATIC PROMPT 9 -->
+            <div style="margin-bottom: 30px;">
+                <h3 style="color: #db2777; margin-bottom: 10px;">9. The 'Vogue' Editorial</h3>
+                <div style="background-color: #fdf2f8; border: 1px solid #fbcfe8; padding: 15px; border-left: 5px solid #db2777;">
+                    <strong>The Prompt:</strong><br><br>
+                    <span style="font-family: monospace; font-size: 14px;">Abstract fashion editorial group shot of [describe cast], wearing matching avant-garde structural clothing, posing dynamically on a white infinite cyc wall, harsh high-fashion flash photography, sharp shadows, minimalist composition, high contrast, Vogue Italia style --ar 3:4</span>
+                </div>
+            </div>
+            <hr style="border: 0; border-top: 1px solid #fce7f3; margin: 30px 0;">
+
+            <!-- STATIC PROMPT 10 -->
+            <div style="margin-bottom: 30px;">
+                <h3 style="color: #db2777; margin-bottom: 10px;">10. The Horror Survivors</h3>
+                <div style="background-color: #fdf2f8; border: 1px solid #fbcfe8; padding: 15px; border-left: 5px solid #db2777;">
+                    <strong>The Prompt:</strong><br><br>
+                    <span style="font-family: monospace; font-size: 14px;">A terrified group photo of [describe cast], huddled together in a dark forest, illuminated only by a single flashlight beam, grime and blood on clothes, wide eyes looking at camera, shaky cam footage aesthetic, 'Blair Witch' style, grain and noise, atmospheric horror --ar 16:9</span>
+                </div>
+            </div>
+            
+        </article>
+
+        <!-- SIDEBAR AREA -->
+        <aside class="sidebar">
+            
+            <!-- Author Widget -->
+            <div class="widget">
+                <div class="widget-title">About the Author</div>
+                <div style="text-align: center;">
+                    <div style="width: 80px; height: 80px; background: #fce7f3; border-radius: 50%; margin: 0 auto 15px auto; display: flex; align-items: center; justify-content: center; color: #be185d; font-weight: bold;">Img</div>
+                    <p style="font-size: 14px;">Hi! I'm an AI art enthusiast passionate about cinematic storytelling. I share prompts and tools to help you create better art.</p>
+                </div>
+            </div>
+
+            <!-- Newsletter Widget -->
+            <div class="widget">
+                <div class="widget-title">Free Prompts</div>
+                <p style="font-size: 14px;">Join 5,000+ creators getting weekly prompt guides.</p>
+                <input type="email" placeholder="Your email..." style="width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #f9a8d4; border-radius: 4px; box-sizing: border-box;">
+                <button style="width: 100%; background: #db2777; color: white; border: none; padding: 10px; border-radius: 4px; cursor: pointer; font-weight: bold;">Subscribe</button>
+            </div>
+
+        </aside>
+
     </div>
 
-    <h2 style="color: #db2777; margin-top: 30px;">The Static Collection</h2>
-    
-    <!-- STATIC PROMPT 1 -->
-    <div style="margin-bottom: 30px;">
-        <h3 style="color: #db2777; margin-bottom: 10px;">1. The Vanity Fair Cover</h3>
-        <div style="background-color: #fdf2f8; border: 1px solid #fbcfe8; padding: 15px; border-left: 5px solid #db2777;">
-            <strong>The Prompt:</strong><br><br>
-            <span style="font-family: monospace; font-size: 14px;">Wide cinematic shot, Vanity Fair Hollywood Issue fold-out cover style, featuring [describe cast], posing elegantly in evening wear, Annie Leibovitz lighting, painted canvas backdrop, soft focus, expensive texture, celebrity ensemble aesthetic, 8k resolution, highly detailed faces --ar 16:9 --stylize 250</span>
-        </div>
-    </div>
-    <hr style="border: 0; border-top: 1px solid #fce7f3; margin: 30px 0;">
+    <!-- FOOTER -->
+    <footer style="background: white; border-top: 1px solid #fce7f3; padding: 40px 0; text-align: center; margin-top: 40px; color: #888; font-size: 14px;">
+        &copy; 2025 Cinematic AI Blog. All rights reserved.
+    </footer>
 
-    <!-- (Add the remaining prompts as needed) -->
-</div>
+</body>
+</html>
