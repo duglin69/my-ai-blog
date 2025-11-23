@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My AI Art Prompt Blog - Home</title>
+    <style>
+        /* GLOBAL BLOG STYLES (Pink Theme) */
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #fdf2f8; 
+        }
+
+        /* LAYOUT */
+        .blog-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* TYPOGRAPHY */
+        h1 { color: #be185d; font-size: 3rem; margin-bottom: 5px; line-height: 1.2; }
+        h2 { color: #db2777; margin-top: 40px; border-bottom: 2px solid #fce7f3; padding-bottom: 10px; font-size: 1.8rem; }
+        p { margin-bottom: 20px; color: #4b5563; }
+        
+        /* NAV BAR */
+        .nav-bar {
+            background: white;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #fce7f3;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+        }
+        .nav-bar a {
+            color: #db2777;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 14px;
+            transition: color 0.2s;
+        }
+        .nav-bar a:hover { color: #be185d; }
+
+        /* HERO / INTRO AREA */
+        .hero {
+            background: white;
+            padding: 60px 40px;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 40px;
+            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+            border: 1px solid #fbcfe8;
+        }
+
+        /* POST LIST STYLES */
+        .post-card {
+            background: white;
+            border: 1px solid #fce7f3;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 15px;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .post-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+        }
+        .post-card h3 {
+            margin: 0 0 5px 0;
+            color: #be185d;
+        }
+        .post-card p {
+            margin: 0 0 15px 0;
+            font-size: 14px;
+            color: #64748b;
+        }
+        .read-more {
+            color: #db2777;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 14px;
+        }
+        .read-more:hover { text-decoration: underline; }
+
+        /* FOOTER */
+        footer {
+            background: #fff1f2;
+            border-top: 1px solid #fce7f3;
+            padding: 40px 0;
+            text-align: center;
+            margin-top: 40px;
+            color: #831843;
+            font-size: 14px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAV BAR (All links updated to match the final structure) -->
+    <div class="nav-bar">
+        <span style="display:block; margin-bottom:10px; font-weight:900; letter-spacing:1px; font-size:18px; color:#be185d;">MY AI ART BLOG</span>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="dance_personalities_post.html">Dance Prompts</a>
+            <a href="viral_group_photos_post.html">Viral Photos</a>
+            <a href="github_setup_guide.html">Tutorials</a>
+        </nav>
+    </div>
+
+    <div class="blog-container">
+        
+        <!-- HERO / WELCOME SECTION -->
+        <div class="hero">
+            <h1>Welcome to the Prompt Lab!</h1>
+            <p style="font-size: 1.1rem; color: #9f1239;">Unlocking the cinematic potential of AI image generators (Midjourney, Flux, SDXL) with hyper-detailed "Super Prompts."</p>
+            <p>Ready to go from basic descriptions to jaw-dropping masterpieces? Dive into our curated prompt guides below!</p>
+            <a href="#posts" class="read-more" style="font-size: 16px;">Browse Our Latest Posts &darr;</a>
+        </div>
+
+        <!-- LATEST POSTS SECTION -->
+        <h2 id="posts">Latest Articles</h2>
+
+        <!-- POST CARD 1: Dance Personalities -->
+        <div class="post-card">
+            <h3>10 Cinematic Dance Personalities: The Ultimate AI Prompt Guide</h3>
+            <p>A collection of vivid, emotionally charged prompts designed to create images of women with fierce, unique personalities mid-dance.</p>
+            <a href="dance_personalities_post.html" class="read-more">Read Article &rarr;</a>
+        </div>
+
+        <!-- POST CARD 2: Group Photos -->
+        <div class="post-card">
+            <h3>The "Viral Cast Photo" Formula: 10 Prompts for Group Shots</h3>
+            <p>Learn the secrets to generating cohesive, professional ensemble cast photos (Vanity Fair, Wes Anderson style) without confusing the AI.</p>
+            <a href="viral_group_photos_post.html" class="read-more">Read Article &rarr;</a>
+        </div>
+        
+        <!-- POST CARD 3: GitHub Tutorial (Internal Link Example) -->
+        <div class="post-card" style="background: #fdf2f8;">
+            <h3>Tutorial: How to Host Your Own Website for Free (Using GitHub Pages)</h3>
+            <p>The step-by-step guide to launching a zero-cost, custom-coded blog like this one, free from platform restrictions.</p>
+            <a href="github_setup_guide.html" class="read-more">Read Tutorial &rarr;</a>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>Built with simple HTML and hosted for free on GitHub Pages.</p>
+        &copy; 2025 My AI Art Blog.
+    </footer>
+
+</body>
+</html>

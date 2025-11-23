@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How to Start a Free Blog on GitHub - Step by Step</title>
+    <style>
+        /* GLOBAL BLOG STYLES (Pink Theme) */
+        body {
+            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+            color: #333;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #fdf2f8;
+        }
+
+        /* LAYOUT */
+        .blog-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+        }
+
+        .main-content {
+            flex: 3;
+            min-width: 300px;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+
+        .sidebar {
+            flex: 1;
+            min-width: 250px;
+        }
+
+        /* TYPOGRAPHY */
+        h1 { color: #be185d; font-size: 2.2rem; margin-bottom: 10px; line-height: 1.2; }
+        h2 { color: #db2777; margin-top: 35px; border-bottom: 2px solid #fce7f3; padding-bottom: 10px; }
+        h3 { color: #be185d; margin-top: 25px; }
+        p { margin-bottom: 20px; color: #4b5563; }
+        
+        /* CODE BLOCKS */
+        pre {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 15px;
+            border-radius: 8px;
+            overflow-x: auto;
+            font-size: 14px;
+        }
+        code {
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        /* STEPS BOX */
+        .step-box {
+            background: #fff1f2;
+            border: 1px solid #fbcfe8;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+        }
+        .step-number {
+            background: #db2777;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        /* NAV BAR (Example for tutorial) */
+        .nav-example {
+            background: white;
+            padding: 15px;
+            text-align: center;
+            border-bottom: 1px solid #fce7f3;
+        }
+        .nav-example a {
+            color: #be185d;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+            text-transform: uppercase;
+            font-size: 13px;
+        }
+        .nav-example a:hover { text-decoration: underline; }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .blog-container { flex-direction: column; }
+            .main-content { padding: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- SITE HEADER WITH NAV -->
+    <div class="nav-example">
+        <span style="display:block; margin-bottom:10px; font-weight:900; letter-spacing:1px; font-size:18px;">MY AI ART BLOG</span>
+        <!-- This is the Navigation Menu -->
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="setup_guide.html">Tutorials</a>
+            <a href="#">Gallery</a>
+            <a href="#">About</a>
+        </nav>
+    </div>
+
+    <div class="blog-container">
+        
+        <!-- MAIN ARTICLE AREA -->
+        <article class="main-content">
+            
+            <header>
+                <span style="background: #fce7f3; color: #9d174d; padding: 4px 8px; border-radius: 4px; font-size: 12px; font-weight: bold;">WEB DEV</span>
+                <h1>How to Host Your Own Website for Free (Using GitHub)</h1>
+                <p style="font-style: italic; color: #831843;">Stop paying for hosting. Here is how I built this blog in 5 minutes using GitHub Pages.</p>
+                <hr style="border: 0; border-top: 1px solid #fce7f3; margin: 30px 0;">
+            </header>
+
+            <p>If you are tired of restrictive platforms like Blogger or Wix, there is a "secret" way to host a website that gives you total control, zero ads, and costs $0. It's called <strong>GitHub Pages</strong>.</p>
+            
+            <p>You don't need to be a coding genius to use it. If you can drag and drop a file, you can publish a site. Here is the exact process I used to launch this blog.</p>
+
+            <!-- STEP 1 -->
+            <div class="step-box">
+                <h3><span class="step-number">1</span> Create a GitHub Account</h3>
+                <p>Go to <a href="https://github.com" style="color:#db2777;">github.com</a> and sign up. It is the platform developers use to store code, but we are going to use it to store our blog posts.</p>
+            </div>
+
+            <!-- STEP 2 -->
+            <div class="step-box">
+                <h3><span class="step-number">2</span> Create a Repository</h3>
+                <p>Think of a "Repository" (or Repo) as a folder for your website project.</p>
+                <ul>
+                    <li>Click the <strong>+ icon</strong> in the top right corner.</li>
+                    <li>Select <strong>New repository</strong>.</li>
+                    <li>Name it something simple (e.g., <code>my-ai-blog</code>).</li>
+                    <li>Check the box that says <strong>Add a README file</strong> (this makes setup easier).</li>
+                    <li>Click <strong>Create repository</strong>.</li>
+                </ul>
+            </div>
+
+            <!-- STEP 3 -->
+            <div class="step-box">
+                <h3><span class="step-number">3</span> Upload Your Home Page</h3>
+                <p>Every website needs a "Main Entrance." In the web world, this file must be named <code>index.html</code>.</p>
+                <ul>
+                    <li>In your new repository, click <strong>Add file</strong> > <strong>Upload files</strong>.</li>
+                    <li>Drag your HTML file (the one you wrote) into the box.</li>
+                    <li><strong>Crucial:</strong> Ensure this file is named exactly <code>index.html</code>.</li>
+                    <li>Scroll down and click the green button: <strong>Commit changes</strong>.</li>
+                </ul>
+            </div>
+
+            <!-- STEP 4 -->
+            <div class="step-box">
+                <h3><span class="step-number">4</span> Go Live!</h3>
+                <p>Now we tell GitHub to turn that code into a website.</p>
+                <ul>
+                    <li>Click the <strong>Settings</strong> tab at the top of your repository page.</li>
+                    <li>On the left sidebar, click <strong>Pages</strong>.</li>
+                    <li>Under "Branch", click the dropdown that says "None" and select <strong>main</strong>.</li>
+                    <li>Click <strong>Save</strong>.</li>
+                </ul>
+                <p>Wait about 60 seconds. Refresh the page, and you will see a bar at the top saying: <em>"Your site is live at..."</em></p>
+            </div>
+
+            <h2>How to Add More Pages (Navigation)</h2>
+            <p>Once your homepage is live, you'll want to add more articles. Here is the trick:</p>
+            
+            <p>1. Create a new HTML file for your new article (e.g., <code>viral_photos.html</code>).<br>
+            2. Upload it to the same repository.<br>
+            3. Add a <strong>Menu</strong> to the top of <em>both</em> files so people can click between them.</p>
+
+            <p>Copy this code block and paste it at the very top of your <code>&lt;body&gt;</code> tag in every file:</p>
+
+<pre>
+&lt;div style="background: white; border-bottom: 1px solid #fce7f3; padding: 15px; text-align: center;"&gt;
+    &lt;nav&gt;
+        &lt;a href="index.html" style="margin: 0 15px; color: #db2777; text-decoration: none; font-weight: bold;"&gt;HOME&lt;/a&gt;
+        &lt;a href="viral_photos.html" style="margin: 0 15px; color: #db2777; text-decoration: none; font-weight: bold;"&gt;VIRAL PHOTOS&lt;/a&gt;
+        &lt;a href="setup_guide.html" style="margin: 0 15px; color: #db2777; text-decoration: none; font-weight: bold;"&gt;TUTORIALS&lt;/a&gt;
+    &lt;/nav&gt;
+&lt;/div&gt;
+</pre>
+
+            <div style="background: #fdf2f8; padding: 20px; border-radius: 8px; margin-top: 40px; text-align: center; color: #831843; border: 1px dashed #db2777;">
+                <strong>Ready to try it?</strong><br>
+                If you are reading this, I successfully hosted this page using the exact steps above!
+            </div>
+
+        </article>
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+            <div style="background: white; padding: 25px; border-radius: 12px; border: 1px solid #fbcfe8; margin-bottom: 20px;">
+                <div style="font-size: 18px; font-weight: bold; color: #be185d; margin-bottom: 15px; border-bottom: 2px solid #fce7f3; padding-bottom: 10px;">About Me</div>
+                <div style="text-align: center;">
+                    <div style="width: 80px; height: 80px; background: #fce7f3; border-radius: 50%; margin: 0 auto 15px auto; display: flex; align-items: center; justify-content: center; color: #be185d; font-weight: bold;">Img</div>
+                    <p style="font-size: 14px;">I share tips on AI art, prompting, and simple web development.</p>
+                </div>
+            </div>
+        </aside>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer style="background: white; border-top: 1px solid #fce7f3; padding: 40px 0; text-align: center; margin-top: 40px; color: #888; font-size: 14px;">
+        &copy; 2025 Cinematic AI Blog. All rights reserved.
+    </footer>
+
+</body>
+</html>
