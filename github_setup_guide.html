@@ -5,6 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>How to Start a Free Blog on GitHub - Step by Step</title>
     <style>
+        /* Adding smooth scroll behavior */
+        html {
+            scroll-behavior: smooth;
+        }
+
         /* GLOBAL BLOG STYLES (Pink Theme) */
         body {
             font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
@@ -79,22 +84,42 @@
             margin-right: 10px;
         }
 
-        /* NAV BAR (Example for tutorial) */
-        .nav-example {
+        /* NAV BAR (Standard Site Nav) */
+        .nav-bar {
             background: white;
             padding: 15px;
             text-align: center;
             border-bottom: 1px solid #fce7f3;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
         }
-        .nav-example a {
-            color: #be185d;
+        .nav-bar a {
+            color: #db2777;
             text-decoration: none;
             margin: 0 15px;
             font-weight: bold;
             text-transform: uppercase;
-            font-size: 13px;
+            font-size: 14px;
+            transition: color 0.2s;
         }
-        .nav-example a:hover { text-decoration: underline; }
+        .nav-bar a:hover { color: #be185d; }
+        
+        /* WIDGET STYLES (Sidebar) */
+        .widget {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            border: 1px solid #fbcfe8;
+        }
+        .widget-title {
+            font-size: 18px;
+            font-weight: bold;
+            color: #be185d;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #fce7f3;
+            padding-bottom: 10px;
+        }
+
 
         /* RESPONSIVE */
         @media (max-width: 768px) {
@@ -103,17 +128,16 @@
         }
     </style>
 </head>
-<body>
+<body id="top">
 
-    <!-- SITE HEADER WITH NAV -->
-    <div class="nav-example">
-        <span style="display:block; margin-bottom:10px; font-weight:900; letter-spacing:1px; font-size:18px;">MY AI ART BLOG</span>
-        <!-- This is the Navigation Menu -->
+    <!-- SITE HEADER WITH NAV (UPDATED) -->
+    <div class="nav-bar">
+        <span style="display:block; margin-bottom:10px; font-weight:900; letter-spacing:1px; font-size:18px; color:#be185d;">MY AI ART BLOG</span>
         <nav>
             <a href="index.html">Home</a>
-            <a href="setup_guide.html">Tutorials</a>
-            <a href="#">Gallery</a>
-            <a href="#">About</a>
+            <a href="dance_personalities_post.html">Dance Prompts</a>
+            <a href="viral_group_photos_post.html">Viral Photos</a>
+            <a href="github_setup_guide.html">Tutorials</a>
         </nav>
     </div>
 
@@ -129,7 +153,7 @@
                 <hr style="border: 0; border-top: 1px solid #fce7f3; margin: 30px 0;">
             </header>
 
-            <p>If you are tired of restrictive platforms like Blogger or Wix, there is a "secret" way to host a website that gives you total control, zero ads, and costs $0. It's called <strong>GitHub Pages</strong>.</p>
+            <p>If you are tired of restrictive platforms like Blogger or Wix, there is a "secret" way to host a website that gives you total control, zero ads, and costs $0. It's called <strong>GitHub Pages</strong>.  </p>
             
             <p>You don't need to be a coding genius to use it. If you can drag and drop a file, you can publish a site. Here is the exact process I used to launch this blog.</p>
 
@@ -174,27 +198,15 @@
                     <li>Under "Branch", click the dropdown that says "None" and select <strong>main</strong>.</li>
                     <li>Click <strong>Save</strong>.</li>
                 </ul>
-                <p>Wait about 60 seconds. Refresh the page, and you will see a bar at the top saying: <em>"Your site is live at..."</em></p>
+                <p>Wait about 60 seconds. Refresh the page, and you will see a bar at the top saying: <em>"Your site is live at..."</em> </p>
             </div>
 
             <h2>How to Add More Pages (Navigation)</h2>
             <p>Once your homepage is live, you'll want to add more articles. Here is the trick:</p>
             
-            <p>1. Create a new HTML file for your new article (e.g., <code>viral_photos.html</code>).<br>
+            <p>1. Create a new HTML file for your new article (e.g., <code>viral_photos_post.html</code>).<br>
             2. Upload it to the same repository.<br>
-            3. Add a <strong>Menu</strong> to the top of <em>both</em> files so people can click between them.</p>
-
-            <p>Copy this code block and paste it at the very top of your <code>&lt;body&gt;</code> tag in every file:</p>
-
-<pre>
-&lt;div style="background: white; border-bottom: 1px solid #fce7f3; padding: 15px; text-align: center;"&gt;
-    &lt;nav&gt;
-        &lt;a href="index.html" style="margin: 0 15px; color: #db2777; text-decoration: none; font-weight: bold;"&gt;HOME&lt;/a&gt;
-        &lt;a href="viral_photos.html" style="margin: 0 15px; color: #db2777; text-decoration: none; font-weight: bold;"&gt;VIRAL PHOTOS&lt;/a&gt;
-        &lt;a href="setup_guide.html" style="margin: 0 15px; color: #db2777; text-decoration: none; font-weight: bold;"&gt;TUTORIALS&lt;/a&gt;
-    &lt;/nav&gt;
-&lt;/div&gt;
-</pre>
+            3. Add the <strong>Navigation Menu</strong> (shown at the top of this page) to the top of <em>every</em> file so people can click between them.</p>
 
             <div style="background: #fdf2f8; padding: 20px; border-radius: 8px; margin-top: 40px; text-align: center; color: #831843; border: 1px dashed #db2777;">
                 <strong>Ready to try it?</strong><br>
@@ -205,8 +217,8 @@
 
         <!-- SIDEBAR -->
         <aside class="sidebar">
-            <div style="background: white; padding: 25px; border-radius: 12px; border: 1px solid #fbcfe8; margin-bottom: 20px;">
-                <div style="font-size: 18px; font-weight: bold; color: #be185d; margin-bottom: 15px; border-bottom: 2px solid #fce7f3; padding-bottom: 10px;">About Me</div>
+            <div class="widget">
+                <div class="widget-title">About Me</div>
                 <div style="text-align: center;">
                     <div style="width: 80px; height: 80px; background: #fce7f3; border-radius: 50%; margin: 0 auto 15px auto; display: flex; align-items: center; justify-content: center; color: #be185d; font-weight: bold;">Img</div>
                     <p style="font-size: 14px;">I share tips on AI art, prompting, and simple web development.</p>
@@ -220,6 +232,11 @@
     <footer style="background: white; border-top: 1px solid #fce7f3; padding: 40px 0; text-align: center; margin-top: 40px; color: #888; font-size: 14px;">
         &copy; 2025 Cinematic AI Blog. All rights reserved.
     </footer>
+
+    <!-- Back to Top Button -->
+    <a href="#top" style="position: fixed; bottom: 30px; right: 30px; background-color: #db2777; color: white; padding: 12px 16px; border-radius: 50%; font-size: 18px; line-height: 1; box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); text-decoration: none; display: block; transition: background-color 0.3s, transform 0.2s;" title="Retour en haut">
+        &#x25B2;
+    </a>
 
 </body>
 </html>
