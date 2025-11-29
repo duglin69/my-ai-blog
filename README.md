@@ -2,8 +2,8 @@
 
 Mon Blog IA - Explorations d'Esthétiques
 
-Bienvenue sur le dépôt de mon blog. Vous trouverez ici l'article phare sur les esthétiques # [ia & esthétiques](https://duglin69.github.io/my-ai-blog/ia-esthetiques.html)
+Bienvenue sur le dépôt de mon blog. Vous y trouverez notamment un superbe article sur **les esthétiques et l'IA**.
 
-✨ APPLICATION INTERACTIVE : [Lancer l'Explorateur d'Esthétiques IA](https://duglin69.github.io/my-ai-blog/ia-esthetiques.html)
+✨ APPLICATION INTERACTIVE : <a href="https://www.google.com/url?sa=E&source=gmail&q=https://duglin69.github.io/my-ai-blog/ia-esthetiques.html" target="_blank" style="font-weight: bold; color: #4f46e5; text-decoration: underline;">Lancer l'Explorateur d'Esthétiques IA</a>
 
 
