@@ -1,6 +1,6 @@
 # [my-ai-blog](https://duglin69.github.io/my-ai-blog/) - code source
 
-Mon Blog IA - Explorations d'Esthétiques
+Mon Blog IA - Prompts et explorations d'Esthétiques
 
 Bienvenue sur le dépôt de mon blog. Vous y trouverez notamment un superbe article sur **les esthétiques et l'IA**.
 
