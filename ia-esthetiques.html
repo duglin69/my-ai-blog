@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Esthétiques IA - L'Explorateur Interactif</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #f8fafc; color: #1e293b; }
+        h1, h2, h3 { font-family: 'Playfair Display', serif; }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 400px;
+        }
+        .card-hover:hover { transform: translateY(-4px); box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05); }
+        .transition-all { transition-property: all; transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1); transition-duration: 300ms; }
+        
+        /* Custom scrollbar for better aesthetics */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #cbd5e1; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #94a3b8; }
+    </style>
+    <!-- Chosen Palette: Warm Neutrals with Category-Specific Accents (Yellow, Green, Purple, Grey, Red, Blue, Indigo) to match the report's structure. -->
+    <!-- Application Structure Plan:
+         1. Header: Introduction to the tool and its purpose based on the report.
+         2. Dashboard Overview (Charts): Visual summary of the concept distribution to give a high-level view of the data.
+         3. Interactive Explorer (Main Content): A filterable grid of all concepts. Users can explore by category (Mood).
+         4. Prompt Studio (Actionable Tool): Allows users to apply the knowledge immediately by generating prompt strings using the keywords from the report.
+         5. Logic: Vanilla JS to handle filtering, modal details, and dynamic text generation.
+    -->
+    <!-- Visualization & Content Choices:
+         - Doughnut Chart: To show the balance of aesthetic categories (Nature vs Digital vs Comfort etc.).
+         - Bar Chart: To compare the "density" of keywords provided for each category (proxy for complexity).
+         - Cards: To display individual concepts with clear visual hierarchy (Title, Definition, Keywords).
+         - Interaction: Filtering, Copy-to-clipboard, Dynamic form input.
+         - Justification: These choices make the dense textual information of the report scannable and immediately usable for the target audience (likely AI artists).
+    -->
+    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
+</head>
+<body class="flex flex-col min-h-screen">
+
+    <!-- Header Section -->
+    <header class="bg-white border-b border-gray-200 sticky top-0 z-50 shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <span class="text-2xl">✨</span>
+                <div>
+                    <h1 class="text-2xl font-bold text-gray-900 leading-none">Esthétiques & IA</h1>
+                    <p class="text-xs text-gray-500 uppercase tracking-wider mt-1">29 Concepts Rares pour le Design</p>
+                </div>
+            </div>
+            <nav class="hidden md:flex gap-6">
+                <a href="#dashboard" class="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors">Vue d'ensemble</a>
+                <a href="#explorer" class="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors">Explorer les Concepts</a>
+                <a href="#studio" class="text-sm font-medium text-gray-600 hover:text-indigo-600 transition-colors">Studio de Prompt</a>
+            </nav>
+        </div>
+    </header>
+
+    <main class="flex-grow">
+        
+        <!-- Introduction -->
+        <section class="max-w-4xl mx-auto px-4 py-12 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-6">Donnez une âme unique à vos créations</h2>
+            <p class="text-lg text-gray-600 leading-relaxed">
+                Ce rapport interactif condense 29 concepts esthétiques culturels et artistiques rares.
+                Loin des mots-clés génériques comme "Cinematic" ou "Cyberpunk", découvrez des atmosphères puissantes
+                allant du confort scandinave à l'horreur numérique, conçues pour enrichir vos prompts d'intelligence artificielle.
+            </p>
+        </section>
+
+        <!-- Dashboard Section: Data Visualization -->
+        <section id="dashboard" class="bg-gray-50 py-12 border-y border-gray-200">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="mb-8">
+                    <h3 class="text-2xl font-bold text-gray-800 mb-2">Analyse du Spectre Esthétique</h3>
+                    <p class="text-gray-600">Répartition des concepts par thématiques émotionnelles et visuelles.</p>
+                </div>
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+                    <!-- Chart 1: Distribution -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <h4 class="font-semibold text-gray-700 mb-4 text-center">Répartition par Famille</h4>
+                        <div class="chart-container">
+                            <canvas id="categoryChart"></canvas>
+                        </div>
+                        <p class="text-xs text-center text-gray-400 mt-4">Cliquez sur les légendes pour filtrer le graphique.</p>
+                    </div>
+
+                    <!-- Chart 2: Keyword Density (Proxy for Complexity) -->
+                    <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                        <h4 class="font-semibold text-gray-700 mb-4 text-center">Richesse Sémantique Moyenne</h4>
+                        <div class="chart-container">
+                            <canvas id="complexityChart"></canvas>
+                        </div>
+                        <p class="text-xs text-gray-500 mt-4 text-center">
+                            Ce graphique montre le nombre moyen de mots-clés associés à chaque famille, indiquant la complexité descriptive nécessaire pour obtenir le style.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main Explorer Section -->
+        <section id="explorer" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
+                <div>
+                    <h3 class="text-2xl font-bold text-gray-800">Galerie des Concepts</h3>
+                    <p class="text-gray-600 mt-1">Sélectionnez une catégorie pour filtrer les cartes.</p>
+                </div>
+                
+                <!-- Filters -->
+                <div class="flex flex-wrap gap-2" id="filterContainer">
+                    <button class="filter-btn active px-4 py-2 rounded-full text-sm font-medium bg-gray-800 text-white transition-all shadow-md hover:bg-gray-700" data-filter="all">Tout voir</button>
+                    <!-- Other buttons injected via JS -->
+                </div>
+            </div>
+
+            <!-- Grid -->
+            <div id="cardsGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Cards injected via JS -->
+            </div>
+        </section>
+
+        <!-- Prompt Studio Section -->
+        <section id="studio" class="bg-indigo-900 text-white py-16">
+            <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="text-center mb-10">
+                    <h3 class="text-3xl font-bold mb-4 font-serif">Studio de Prompt</h3>
+                    <p class="text-indigo-200 max-w-2xl mx-auto">
+                        Sélectionnez un concept et saisissez votre sujet. L'outil assemblera automatiquement un prompt optimisé avec les mots-clés techniques du rapport.
+                    </p>
+                </div>
+
+                <div class="bg-white text-gray-800 rounded-2xl shadow-2xl overflow-hidden md:flex">
+                    <!-- Controls -->
+                    <div class="p-8 md:w-1/2 bg-gray-50 border-r border-gray-200">
+                        <div class="space-y-6">
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">1. Choisissez un Concept</label>
+                                <select id="conceptSelect" class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-shadow">
+                                    <option value="" disabled selected>-- Sélectionner une esthétique --</option>
+                                    <!-- Options injected via JS -->
+                                </select>
+                                <p id="conceptDescription" class="text-sm text-gray-500 mt-2 italic min-h-[40px]"></p>
+                            </div>
+
+                            <div>
+                                <label class="block text-sm font-bold text-gray-700 mb-2">2. Décrivez votre Sujet</label>
+                                <input type="text" id="subjectInput" placeholder="ex: un chat noir, une ville futuriste..." class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500 outline-none transition-shadow">
+                            </div>
+
+                            <button id="generateBtn" class="w-full bg-indigo-600 hover:bg-indigo-700 text-white font-bold py-3 px-6 rounded-lg transition-colors flex items-center justify-center gap-2">
+                                <span>⚡ Générer le Prompt</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Output -->
+                    <div class="p-8 md:w-1/2 flex flex-col justify-center bg-white relative">
+                        <label class="block text-sm font-bold text-gray-400 mb-2 uppercase tracking-wide">Résultat</label>
+                        <div class="relative">
+                            <textarea id="promptOutput" readonly class="w-full h-48 p-4 bg-gray-100 border-l-4 border-indigo-500 text-gray-700 font-mono text-sm resize-none focus:outline-none rounded-r-lg" placeholder="Le prompt généré apparaîtra ici..."></textarea>
+                            <button id="copyBtn" class="absolute top-2 right-2 bg-white p-2 rounded shadow hover:bg-gray-50 text-gray-500 hover:text-indigo-600 transition-colors border border-gray-200" title="Copier">
+                                📋
+                            </button>
+                        </div>
+                        <p class="text-xs text-gray-400 mt-4 text-center">Copiez ce texte dans Midjourney, DALL-E ou Stable Diffusion.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer class="bg-gray-800 text-gray-400 py-8 border-t border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p>&copy; 2023 Générateur d'Expériences Esthétiques. Basé sur le rapport "29 Concepts Esthétiques Rares".</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript Logic -->
+    <script>
+        // --- DATA ---
+        const categories = [
+            { id: 'cat1', name: 'Confort & Chaleur', color: 'bg-yellow-100 border-yellow-300 text-yellow-800', chartColor: 'rgba(252, 211, 77, 0.8)' },
+            { id: 'cat2', name: 'Nature & Imperfection', color: 'bg-green-100 border-green-300 text-green-800', chartColor: 'rgba(74, 222, 128, 0.8)' },
+            { id: 'cat3', name: 'Digital & Nostalgie', color: 'bg-purple-100 border-purple-300 text-purple-800', chartColor: 'rgba(192, 132, 252, 0.8)' },
+            { id: 'cat4', name: 'Anxiété & Vide', color: 'bg-gray-200 border-gray-400 text-gray-800', chartColor: 'rgba(156, 163, 175, 0.8)' },
+            { id: 'cat5', name: 'Fiction & Histoire', color: 'bg-red-100 border-red-300 text-red-800', chartColor: 'rgba(248, 113, 113, 0.8)' },
+            { id: 'cat6', name: 'Futurisme & Utopie', color: 'bg-blue-100 border-blue-300 text-blue-800', chartColor: 'rgba(96, 165, 250, 0.8)' },
+            { id: 'cat7', name: 'Architecture', color: 'bg-indigo-100 border-indigo-300 text-indigo-800', chartColor: 'rgba(129, 140, 248, 0.8)' }
+        ];
+
+        const concepts = [
+            // I. Confort
+            { name: "Hygge", cat: 'cat1', desc: "L'art de créer de l'intimité et du confort. Chaleur, lumière douce.", keywords: "Cozy, Warm lighting, Wool, Comfort, Fireplace, Relaxed" },
+            { name: "Cottagecore", cat: 'cat1', desc: "Vie rurale simple, douce et autonome. Fleurs sauvages, pâtisserie.", keywords: "Pastoral, Wildflower meadow, Soft natural light, Wicker basket, Rustic, Linen" },
+            { name: "Autumnal Academia", cat: 'cat1', desc: "Variante chaleureuse de Dark Academia. Couleurs d'automne, pulls douillets.", keywords: "Cozy study, Warm earth tones, Chunky knit sweater, Falling leaves, Old books" },
+            { name: "Lampcore", cat: 'cat1', desc: "La source de lumière comme point focal. Refuge intime isolé de l'obscurité.", keywords: "Single source light, Cozy isolation, Table lamp glow, Deep contrast, Warm incandescent" },
+
+            // II. Nature
+            { name: "Wabi-Sabi", cat: 'cat2', desc: "La beauté de l'imperfection. Célèbre l'usure, la patine, les fissures.", keywords: "Wabi-sabi, imperfection, aged wood, patina, muted earth tones, decaying elegance" },
+            { name: "Goblincore", cat: 'cat2', desc: "Nature brute et humide. Fascination pour mousses, champignons, et le 'sale'.", keywords: "Mossy, overgrown, earthen tones, damp forest, fungi, slimy texture, foraged objects" },
+            { name: "Dark Naturalism", cat: 'cat2', desc: "Nature sauvage et sombre. Clair-obscur, magie ancienne.", keywords: "Chiaroscuro lighting, deep forest, moody, ominous nature, dramatic shadows, gothic folklore" },
+            { name: "Fairy Grunge", cat: 'cat2', desc: "Féérique x Grunge. Dentelle noire, plantes séchées, couleurs terreuses.", keywords: "Dark forest, earth witch, lace and fishnets, mystical, deep muted colors, tangled vines" },
+
+            // III. Digital
+            { name: "Vapourwave", cat: 'cat3', desc: "Nostalgie mélancolique des années 80/90. Pastel, statues, glitch.", keywords: "Pastel synthwave, bust of Apollo, neon grid, 90s aesthetic, dreamy glow, glitch art" },
+            { name: "Seapunk", cat: 'cat3', desc: "Motifs marins et esthétique numérique. Dauphins, holographique, cyan.", keywords: "Aqua/cyan colors, dolphin motif, 90s net art, holographic texture, underwater atmosphere" },
+            { name: "Y2K Aesthetic", cat: 'cat3', desc: "Pop-culture 1999-2003. Irisé, plastique, chrome, formes organiques.", keywords: "Iridescent, bubblegum pink, metallic textures, translucent plastic, early internet style" },
+            { name: "Frutiger Aero", cat: 'cat3', desc: "Optimisme tech 2000s. Skeuomorphisme, bulles de verre, nature propre.", keywords: "Skeuomorphism, glossy texture, bright aqua, glass and reflections, nature meets tech" },
+
+            // IV. Anxiété
+            { name: "Liminal Space", cat: 'cat4', desc: "Lieux de transition vides. Étrange, entre rêve et réalité.", keywords: "Eerie emptiness, fluorescent lighting, nostalgia, transitional place, void, dreamcore" },
+            { name: "Kenopsia", cat: 'cat4', desc: "Lieu habituellement actif mais désert. Éclairage cru, silence total.", keywords: "Vast emptiness, echoing halls, abandoned school, surreal stillness, cold lighting" },
+            { name: "Weirdcore", cat: 'cat4', desc: "Horreur internet primitif. Basse résolution, glitch, enfance déformée.", keywords: "Low-resolution, unsettling, uncanny valley, surreal landscape, primitive digital art, VHS glitch" },
+            { name: "Traumacore", cat: 'cat4', desc: "Enfance pastel et détresse. Fragmentation, texte superposé.", keywords: "Bright pastel colors, fragmented memories, childlike symbols, unsettling innocence, glitchy overlay" },
+            { name: "Lostcore", cat: 'cat4', desc: "Errance et désorientation. Cartes déformées, vastes espaces vides.", keywords: "Lostcore, desolate landscape, distorted map, abandoned roadside, vast emptiness, foggy" },
+
+            // V. Fiction
+            { name: "Dark Academia", cat: 'cat5', desc: "Étude classique, mystère, vieilles universités. Pluie, tweed, sombre.", keywords: "Gothic architecture, old library, tweed and leather, moody lighting, intellectual atmosphere" },
+            { name: "Dieselpunk", cat: 'cat5', desc: "Rétrofuturisme 1920-40. Industriel, acier riveté, huile, Art Déco.", keywords: "Art Deco machines, riveted steel, heavy industry, grim aesthetic, 1940s technology" },
+            { name: "Steampunk", cat: 'cat5', desc: "Rétrofuturisme Victorien. Vapeur, engrenages, cuivre, laiton.", keywords: "Victorian era, brass and copper, complex machinery, clockwork, goggles, elegant complexity" },
+            { name: "Atomic Age", cat: 'cat5', desc: "Sci-fi années 50. Dômes, chrome, couleurs pop, optimisme daté.", keywords: "Atomic Age futurism, Googie architecture, Jetsons style, chrome and vinyl, 1950s sci-fi" },
+            { name: "Golden Hour", cat: 'cat5', desc: "Lumière dorée dramatique. Ombres longues, chaleur, cinématique.", keywords: "Golden hour light, cinematic lighting, dramatic shadows, volumetric light, warm glow" },
+            { name: "Gloomcore", cat: 'cat5', desc: "Confort dans le négligé. Sombre, encombré, mais intime.", keywords: "Gloomcore, comfortable sadness, messy room, artificial light, urban decay, nostalgic clutter" },
+
+            // VI. Futurisme
+            { name: "Solarpunk", cat: 'cat6', desc: "Harmonie Nature-Tech. Lumineux, vert, Art Nouveau, solaire.", keywords: "Solarpunk, utopian, lush vegetation, art nouveau architecture, sunlight, bright and airy" },
+            { name: "Regrowthpunk", cat: 'cat6', desc: "Post-apocalypse verte. Nature reprend ses droits, mousse, mélancolie.", keywords: "Regrowthpunk, nature reclaiming, overgrown ruins, abandoned highway, mossy concrete" },
+            { name: "Cyberpunk", cat: 'cat6', desc: "High-tech low-life. Sombre, pluie, néons, dystopie.", keywords: "Cyberpunk, high-tech low-life, neon signs, rainy streets, dark futuristic city, synthwave" },
+
+            // VII. Architecture
+            { name: "Brutalisme", cat: 'cat7', desc: "Béton brut, formes massives. Austère, monumental, sans ornement.", keywords: "Brutalism, raw concrete, geometric massing, utilitarian design, massive scale, monochrome tones" },
+            { name: "Ghostcore", cat: 'cat7', desc: "Souvenir froid, présence-absence. Couleurs délavées, éthéré.", keywords: "Ghostcore, ethereal, white sheet ghost, faded memory, dusty, light leakage, haunting presence" },
+            { name: "Twee", cat: 'cat7', desc: "Innocence, fait main, vintage. Couleurs primaires, charme maladroit.", keywords: "Twee aesthetic, whimsical, handcrafted, primary colors, simple patterns, vintage clothing" }
+        ];
+
+        // --- INIT ---
+        document.addEventListener('DOMContentLoaded', () => {
+            renderFilters();
+            renderCards('all');
+            initCharts();
+            initPromptStudio();
+        });
+
+        // --- RENDER LOGIC ---
+
+        function renderFilters() {
+            const container = document.getElementById('filterContainer');
+            // Add 'all' button
+            const allBtn = document.createElement('button');
+            allBtn.className = `filter-btn active px-4 py-2 rounded-full text-sm font-medium bg-gray-800 text-white transition-all shadow-md hover:bg-gray-700`;
+            allBtn.textContent = 'Tout voir';
+            allBtn.dataset.filter = 'all';
+            allBtn.onclick = function() {
+                // Reset all
+                document.querySelectorAll('.filter-btn').forEach(b => {
+                    b.className = `filter-btn px-4 py-2 rounded-full text-sm font-medium text-gray-600 bg-white border border-gray-200 transition-all hover:opacity-80`;
+                });
+                // Activate self
+                this.className = `filter-btn active px-4 py-2 rounded-full text-sm font-medium bg-gray-800 text-white transition-all shadow-md hover:bg-gray-700`;
+                renderCards('all');
+            };
+            container.appendChild(allBtn);
+
+
+            categories.forEach(cat => {
+                const btn = document.createElement('button');
+                btn.className = `filter-btn px-4 py-2 rounded-full text-sm font-medium text-gray-600 bg-white border border-gray-200 transition-all hover:opacity-80`;
+                btn.textContent = cat.name.split('&')[0]; // Use short name for filter
+                btn.dataset.filter = cat.id;
+                
+                btn.onclick = () => {
+                    // Reset all
+                    document.querySelectorAll('.filter-btn').forEach(b => {
+                        b.className = `filter-btn px-4 py-2 rounded-full text-sm font-medium text-gray-600 bg-white border border-gray-200 transition-all hover:opacity-80`;
+                    });
+                    
+                    // Activate current
+                    const catData = categories.find(c => c.id === cat.id);
+                    btn.className = `filter-btn active px-4 py-2 rounded-full text-sm font-medium border border-${catData.prefix}-300 shadow-md ${catData.color}`;
+                    
+                    renderCards(cat.id);
+                };
+                container.appendChild(btn);
+            });
+        }
+
+        function renderCards(filterId) {
+            const grid = document.getElementById('cardsGrid');
+            grid.innerHTML = '';
+
+            const filteredConcepts = filterId === 'all' 
+                ? concepts 
+                : concepts.filter(c => c.cat === filterId);
+
+            filteredConcepts.forEach(c => {
+                const catData = categories.find(cat => cat.id === c.cat);
+                const card = document.createElement('div');
+                card.className = `bg-white rounded-xl overflow-hidden border border-gray-100 shadow-sm card-hover transition-all flex flex-col h-full`;
+                
+                card.innerHTML = `
+                    <div class="h-1 w-full ${catData.color.split(' ')[0]}"></div>
+                    <div class="p-6 flex-grow flex flex-col">
+                        <div class="flex justify-between items-start mb-2">
+                            <h4 class="text-xl font-bold text-gray-800 font-serif">${c.name}</h4>
+                            <span class="text-[10px] uppercase font-bold px-2 py-1 rounded bg-gray-100 text-gray-500">${catData.name.split('&')[0]}</span>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-4 leading-relaxed">${c.desc}</p>
+                        
+                        <div class="mt-auto pt-4 border-t border-gray-50">
+                            <p class="text-xs font-semibold text-gray-400 uppercase tracking-wide mb-2">Mots-clés</p>
+                            <p class="text-xs text-indigo-600 font-mono bg-indigo-50 p-2 rounded break-words select-all cursor-pointer hover:bg-indigo-100 transition-colors" title="Cliquer pour copier" onclick="copyText('${c.keywords}')">
+                                ${c.keywords}
+                            </p>
+                        </div>
+                    </div>
+                    <button class="w-full py-2 text-center text-sm font-medium text-gray-500 hover:text-indigo-600 hover:bg-gray-50 transition-colors border-t border-gray-100" onclick="selectForStudio('${c.name}')">
+                        Utiliser dans le Studio ↓
+                    </button>
+                `;
+                grid.appendChild(card);
+            });
+        }
+
+        // --- CHARTS ---
+
+        function initCharts() {
+            // Prepare Data
+            const catCounts = categories.map(cat => concepts.filter(c => c.cat === cat.id).length);
+            const catLabels = categories.map(cat => cat.name);
+            const catColors = categories.map(cat => cat.chartColor);
+
+            // Chart 1: Distribution (Doughnut)
+            const ctx1 = document.getElementById('categoryChart').getContext('2d');
+            new Chart(ctx1, {
+                type: 'doughnut',
+                data: {
+                    labels: catLabels,
+                    datasets: [{
+                        data: catCounts,
+                        backgroundColor: catColors,
+                        borderWidth: 0,
+                        hoverOffset: 10
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    plugins: {
+                        legend: { position: 'right', labels: { font: { size: 10, family: "'Inter', sans-serif" }, boxWidth: 10 } }
+                    },
+                    layout: { padding: 20 }
+                }
+            });
+
+            // Chart 2: Keyword Complexity (Bar)
+            // Calculate avg keywords per category
+            const avgKeywords = categories.map(cat => {
+                const catConcepts = concepts.filter(c => c.cat === cat.id);
+                const totalKeywords = catConcepts.reduce((acc, curr) => acc + curr.keywords.split(',').length, 0);
+                return (totalKeywords / catConcepts.length).toFixed(1);
+            });
+
+            const ctx2 = document.getElementById('complexityChart').getContext('2d');
+            new Chart(ctx2, {
+                type: 'bar',
+                data: {
+                    labels: catLabels,
+                    datasets: [{
+                        label: 'Mots-clés moyens par concept',
+                        data: avgKeywords,
+                        backgroundColor: catColors,
+                        borderRadius: 4,
+                        barThickness: 20
+                    }]
+                },
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+                    scales: {
+                        y: { beginAtZero: true, grid: { color: '#f3f4f6' } },
+                        x: { grid: { display: false }, ticks: { font: { size: 9 } } }
+                    }
+                    ,
+                    plugins: {
+                        legend: { display: false }
+                    }
+                }
+            });
+        }
+
+        // --- PROMPT STUDIO LOGIC ---
+
+        function initPromptStudio() {
+            const select = document.getElementById('conceptSelect');
+            
+            // Populate Select
+            concepts.sort((a,b) => a.name.localeCompare(b.name)).forEach(c => {
+                const opt = document.createElement('option');
+                opt.value = c.name;
+                opt.textContent = c.name;
+                select.appendChild(opt);
+            });
+
+            // Update desc on change
+            select.addEventListener('change', (e) => {
+                const concept = concepts.find(c => c.name === e.target.value);
+                document.getElementById('conceptDescription').textContent = concept ? concept.desc : '';
+            });
+
+            // Generate Prompt
+            document.getElementById('generateBtn').addEventListener('click', () => {
+                const subject = document.getElementById('subjectInput').value.trim();
+                const conceptName = select.value;
+                
+                if(!conceptName) {
+                    alert("Veuillez sélectionner un concept.");
+                    return;
+                }
+
+                const concept = concepts.find(c => c.name === conceptName);
+                
+                // Construct logic: Subject + Style Declaration + Keywords
+                let finalPrompt = "";
+                
+                if (subject) {
+                    finalPrompt += `/imagine prompt: ${subject}, `;
+                } else {
+                    finalPrompt += `/imagine prompt: [Votre Sujet], `;
+                }
+                
+                finalPrompt += `in the style of ${concept.name}, ${concept.keywords}. --ar 16:9 --v 5.2`;
+
+                const output = document.getElementById('promptOutput');
+                output.value = "";
+                
+                // Typewriter effect
+                let i = 0;
+                const typeInterval = setInterval(() => {
+                    output.value += finalPrompt.charAt(i);
+                    i++;
+                    if (i > finalPrompt.length - 1) clearInterval(typeInterval);
+                }, 10);
+            });
+
+            // Copy Button
+            document.getElementById('copyBtn').addEventListener('click', () => {
+                const text = document.getElementById('promptOutput').value;
+                if(text) copyText(text);
+            });
+        }
+
+        // Helper: Select from card
+        window.selectForStudio = function(conceptName) {
+            const select = document.getElementById('conceptSelect');
+            select.value = conceptName;
+            
+            // Trigger change event manually to update description
+            const event = new Event('change');
+            select.dispatchEvent(event);
+            
+            // Scroll to studio
+            document.getElementById('studio').scrollIntoView({ behavior: 'smooth' });
+        };
+
+        // Helper: Copy Text
+        window.copyText = function(text) {
+            document.execCommand('copy'); // Fallback for clipboard access issues
+            navigator.clipboard.writeText(text).then(() => {
+                // Visual feedback could be added here (toast)
+                const btn = document.getElementById('copyBtn');
+                if(btn) {
+                    const original = btn.innerHTML;
+                    btn.innerHTML = '✅';
+                    setTimeout(() => btn.innerHTML = original, 1500);
+                }
+            });
+        };
+
+    </script>
+</body>
+</html>
+Ajout de l'application interactive IA-Esthetiques
